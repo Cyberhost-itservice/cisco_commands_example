@@ -1,0 +1,40 @@
+Router1 konfig set ip & sub to int g0/0/0:
+
+R1# show ip interface brief - zeigt interfaces an
+R1# conf t - wechselt in den konfigurationsmodus
+R1(config)# enable secret cisco - setzt das password cisco
+R1(config)# no ip domain-lookup - deaktiveren der externen Namesauflösung
+R1(config)# int g0/0/0 - wähklt das interface aus was bearbeitet werden muss.
+R1(config-if)# ip address 10.1.1.1 255.255.255.0 - setz die Ip adresse nit den gegeben daten
+R1(config-if)# description LAN - gibt den INtersace den Namen LAN
+R1(config-if)# no shutdown - interface hochfahren
+R1(config-if)# do show ip int br - zeigt interface an
+
+R1(config-if)# no ip address - setzt alles zurück
+R1(config-if)# shutdown - fährt das interface runter
+
+Loopback Schnbittstelle : In der Regel verfügt jede dieser Komponenten zusätzlich
+über eine Loopback-Schnittstelle, die keiner tatsächlichen Schnittstelle zu einem anderen System entspricht.
+
+Commands example for config interface g0/0/0:
+R1# conf t
+R1(config-if)# int loopback ?
+<0-2147483647> Loopback interface number
+R1(config-if)# int loopback4711 - vergibt die loopback4711
+R1(config-if)# ip add 192.168.1.254 255.255.255.255
+R1(config-if)# do show ip int br - zeigt interface /loopback an
+
+Loopback entfernen
+
+R1# conf t
+R1(config-if)# no int loopback 4711
+
+Konfiguartionen
+
+conf t
+(config)# enable secret cisco - setzt das password cisco
+(config)# no ip domain-lookup - deaktiveren der externen Namesauflösung
+
+(config)# line con 0 - konfigurieret das Verhalten der Konsole
+(config)# password cisco - setzt dass password auf cisco für das Gerät
+(config)# exec-timeout 60 0 - setzt das timeout auf 60 min 0 sekunden
